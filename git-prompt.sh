@@ -33,7 +33,7 @@ _ps_working_directory() {
 
   if [ "$project_path" != "" ] ; then
     before_project=`echo "$project_path" | rev | cut -d / -f 2- | rev`
-    project_name=`basename $project_path`
+    project_name=`basename "$project_path"`
     after_project="${current_dir##$project_path}"
     echo -e "${_PS_YELLOW}${before_project}/${_PS_BLUE}${project_name}${_PS_NOCOLOR}${_PS_YELLOW}${after_project}${_PS_NOCOLOR} "
   else

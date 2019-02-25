@@ -25,7 +25,7 @@ _my_prompt() {
     fi
 
     if [ "$PWD" != "$HOME" ] ; then
-      SHORT_PWD=$(basename $PWD)
+      SHORT_PWD=$(basename "$PWD")
       if [ -z "$ACTUAL_TITLE" ] ; then
         ACTUAL_TITLE="$SHORT_PWD"
       else
