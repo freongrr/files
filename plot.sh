@@ -24,14 +24,14 @@ MIN_WARN=50
 MIN_HIGH=75
 
 STR="$1"
-VAL=$(echo "$STR" | sed -n -e 's/^\([0-9]\+\).*/\1/p' )
+VAL=$(echo "$STR" | sed -n -e 's/^\([0-9]*\).*/\1/p' )
 
 if [ -z "$VAL" ] ; then
   # No numeric value
   exit 1
 fi
 
-echo -n "["
+/bin/echo -n "["
 
 i=$STEP
 while (( $i < $MAX )) ; do
@@ -41,11 +41,11 @@ while (( $i < $MAX )) ; do
   fi
 
   if (( $i > $MIN_HIGH )) ; then
-    echo -en "${C_RED}${CHAR}${C_OFF}"
+    /bin/echo -en "${C_RED}${CHAR}${C_OFF}"
   elif (( $i > $MIN_WARN )) ; then
-    echo -en "${C_YELLOW}${CHAR}${C_OFF}"
+    /bin/echo -en "${C_YELLOW}${CHAR}${C_OFF}"
   else
-    echo -en "${C_GREEN}${CHAR}${C_OFF}"
+    /bin/echo -en "${C_GREEN}${CHAR}${C_OFF}"
   fi
 
   i=$[$i+$STEP]
